@@ -7,7 +7,7 @@ finalString = ""
 function addition(a, b) { return a + b }
 function subtraction(a, b) { return a - b }
 function multiplication(a, b) { return a * b }
-function division(a, b) { return a - b }
+function division(a, b) { return a / b }
 
 
 function setOperations(prevOp, latOP, charVal, a, b) {
@@ -73,12 +73,12 @@ function ansSetter(str) {
         if (flag == 0) {
             //for a 
             s += str[i]
-            a = Number.parseInt(s)
+            a = Number.parseFloat(s)
         }
         if (flag == 1) {
             //for b
             s += str[i]
-            b = Number.parseInt(s)
+            b = Number.parseFloat(s)
         }
 
         if (flag == 1 && i == str.length - 1) {
@@ -114,33 +114,49 @@ function stringValidator(str) {
 }
 
 function finalStinger(str) {
+    if (str[str.length - 1] == "=") {
+        str.replace("=", "")
+    }
+    let retVal = ""
     if (stringValidator(str)) {
 
-        inp.value = "Error in input"
+        retVal = "Error in input"
 
     } else {
-        let inpSet = ansSetter(str)
-        console.log(inpSet)
-        inp.value = inpSet
+        retVal = ansSetter(str)
+        // console.log()
+        inp.value = retVal
 
 
     }
-    return
+    return retVal
 
 }
 
 let flag = 0
 buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
+
         if (btn.textContent == "=") {
-            finalStinger(ans)
+            inp.value = finalStinger(ans)
+            ans = inp.value
+            console.log(ans)
             flag = 1
         }
-        if (flag != 1) {
+
+
+        if (flag == 1) {
+
+            inp.value = ans
+            console.log(ans)
+            flag = 0
+
+        } else {
             ans += btn.textContent
             inp.value = ans
             console.log(ans)
         }
+
 
 
         if (btn.textContent == "C" || btn.textContent == "c") {

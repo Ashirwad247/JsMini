@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   height: 100vh;
   display: flex;
@@ -21,7 +26,7 @@ h1 {
   justify-content: center;
   background-color: rgb(58, 58, 58);
   height: 500px;
-  min-width: 450px;
+  min-width: 300px;
   border-radius: 15px;
 }
 
@@ -34,7 +39,7 @@ h1 {
 }
 
 input {
-  min-width: 400px;
+  width: 400px;
   height: 70px;
   background-color: black;
   border: none;
@@ -50,7 +55,7 @@ input {
   grid-template-columns: repeat(4, 80px);
   gap: 20px;
   padding: 15px 20px;
-  min-width: 400px;
+  width: 400px;
   height: 330px;
 }
 
@@ -81,4 +86,48 @@ input {
 
 .btn.clr {
   background-color: rgb(113, 189, 255);
+}
+
+@media (max-width: 700px) {
+  .calc {
+    width: 190px;
+    background-color: rgb(68, 68, 68);
+    gap: 25px;
+  }
+
+  .inp {
+    padding: 2px 2px;
+    width: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .itext {
+    padding: 5px 8px;
+    border-radius: 8px;
+    font-size: 7px;
+    height: 50px;
+    max-width: 200px;
+    font-size: 16px;
+  }
+
+  .buttons {
+    max-width: 250px;
+    padding: 5px 3px;
+    gap: 1px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+
+    /* background-color: red; */
+  }
+
+  .btn {
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
+    padding: 7px 7px;
+    margin: 0;
+  }
 }
